@@ -1,0 +1,27 @@
+{% extends 'layouts/main.html' %}
+{% block title %}
+View regulations
+{% endblock %}
+
+{% block body %}
+<div class="main__content--full">
+  <iframe id="eregs-viewer" name="embedded-eregs-viewer" src="http://localhost:8000" frameborder="0" scrolling="no">
+    <div class="message message--alert">
+      <p>Your web browser does not support inline frames. Please visit <a href="http://fec-eregs.apps.cloud.gov">https://fec-eregs.apps.cloud.gov</a>.</p>
+    </div>
+  </iframe>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  (function() {
+    console.log('hello world');
+    $('#eregs-viewer').contents().find('html').css('height', '100%');
+    $('#eregs-viewer').contents().find('#site-header').hide();
+  })();
+</script>
+{% endblock %}

@@ -153,6 +153,13 @@ def elections(office, cycle, state=None, district=None):
         title=utils.election_title(cycle, office, state, district),
     )
 
+@app.route('/legal/regulations')
+def legal_viewer():
+    return render_template(
+        'legal-viewer.html',
+    )
+
+
 @app.route('/legal/search/')
 def legal_search():
     query = request.args.get('search')
