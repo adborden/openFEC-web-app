@@ -12,6 +12,7 @@ from hmac_authentication import hmacauth
 from flask import Flask, render_template, request, url_for
 from flask_sslify import SSLify
 from werkzeug.contrib.fixers import ProxyFix
+from pythonjsonlogger import jsonlogger
 
 from openfecwebapp import utils
 from openfecwebapp import views
@@ -22,7 +23,16 @@ from openfecwebapp.env import env
 
 locale.setlocale(locale.LC_ALL, '')
 
-logging.basicConfig(level=logging.INFO)
+def initialize_logging():
+    streamHandler = logging.StreamHandler()
+    if env.name:
+        # Configure logger for cloud.gov
+        streamHandler.setFormatter(jsonlogger.JsonFormatter())
+
+    logging.basicConfig(level=logging.INFO, handlers=[streamHandler])
+
+
+initialize_logging()
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__, static_path='/static', static_folder='../dist')
