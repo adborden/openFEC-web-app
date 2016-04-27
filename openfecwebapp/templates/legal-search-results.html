@@ -2,7 +2,11 @@
 {% import 'macros/legal-search.html' as legal_search %}
 
 {% block title %}
+  {% if query %}
   Search results for "{{query}}"
+  {% else %}
+  Search legal resources
+  {% endif %}
 {% endblock %}
 
 {% block body %}
@@ -25,8 +29,10 @@
           </ul>
         </nav>
       </div>
-      <section class="main__content">
+      <section class="main__content--right">
+        {% if query %}
         <h1 class="main__title">Results for “{{ query }}”</h1>
+        {% endif %}
         <div id="results-advisory-opinions" class="content__section">
           <div class="results-info results-info--top">
             <div class="results-info__left">
@@ -53,8 +59,8 @@
                 {% endfor %}
               </tbody>
             </table>
-            <div class="results-info results-info--simple">
-              <a class="button button--alt" href="/legal/advisory-opinions/?search={{ query }}">View all results</a>
+            <div class="results-info results-info--bottom">
+              <a class="button button--browse button--alt" href="/legal/advisory-opinions/?search={{ query }}">View all results</a>
             </div>
           {% else %}
             <div class="message message--alert">
