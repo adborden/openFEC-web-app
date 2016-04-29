@@ -67,7 +67,7 @@
     "d3": "3.5.5",
     "datatables.net": "1.10.10",
     "datatables.net-responsive": "2.0.1",
-    "fec-style": "~1.9",
+    "fec-style": "git://github.com/adborden/fec-style.git#9e11bdb399e03f507d4d7a7a2a3b350a3aa277a9",
     "handlebars": "^4.0.5",
     "hbsfy": "2.2.1",
     "intl": "1.0.0-rc-4",

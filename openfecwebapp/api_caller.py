@@ -89,7 +89,7 @@ def load_legal_search_results(query, query_type='all', offset=0, limit=20):
         filters['type'] = query_type
         filters['from_hit'] = offset
 
-    url = '/legal/search'
+    url = '/legal/search/'
     results = _call_api(url, **filters)
 
     if query_type == 'aos':

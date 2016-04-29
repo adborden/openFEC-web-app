@@ -11,5 +11,3 @@ env:
   NEW_RELIC_CONFIG_FILE: newrelic.ini
   NEW_RELIC_LOG: stdout
   FEC_FORCE_HTTPS: "true"
-applications:
-- name: web

@@ -110,8 +110,15 @@ function write(streams, name) {
 
 gulp.task('build-js', function() {
   var pages = fs.readdirSync('./static/js/pages').map(function(each) {
+    if (! /.js$/.test(each)) {
+      return null;
+    }
+
     return path.join('./static/js/pages', each);
+  }).filter(function (filepath) {
+    return !!filepath;
   });
+
   pages.unshift('static/js/init.js');
   var callback = write.bind(undefined, pages.length + 1);
   count = 0;
