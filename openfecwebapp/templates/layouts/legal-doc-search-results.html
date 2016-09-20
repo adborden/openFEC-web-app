@@ -18,12 +18,14 @@
   {{ breadcrumb.breadcrumbs(document_type_display_name.capitalize(), breadcrumb_links) }}
 </header>
 
-<section class="main__content--full data-container__wrapper">
-  {{ legal.filter('Search %s' % (document_type_display_name), result_type, query) }}
-  <div id="results-{{ result_type }}" class="content__section data-container__body">
-    <div class="results-info results-info--simple">
-      <div class="results-info__left">
-        <h2 class="results-info__title">Searching {{ document_type_display_name }}{% if query %} for &ldquo;{{ query }}&rdquo;{% endif %}</h2>
+<section class="main__content--full">
+  {{ legal.filter(result_type, query) }}
+  <div id="results-{{ result_type }}" class="data-container">
+    <div class="data-container__widgets js-data-widgets">
+      <div class="data-container__head">
+        <h1 class="data-container__title">{{ document_type_display_name | capitalize }}</h1>
+      </div>
+      <div class="js-filter-tags data-container__tags">
       </div>
     </div>
     {% if results.total_all %}
