@@ -11,7 +11,11 @@
   {{ breadcrumb.breadcrumbs('MUR #%s' % (mur.no,), breadcrumb_links) }}
 </header>
 
+<<<<<<< Updated upstream
+<div class="container main">
+=======
 <div class="container main legal-mur">
+>>>>>>> Stashed changes
   <div class="content__section">
     <div class="section__heading">
       <h1 class="heading__title heading__title--main">MUR #{{ mur.no }}</h1>
@@ -29,8 +33,13 @@
   </div>
   <div class="main__content--right">
     <section id="summary" class="content__section">
+<<<<<<< Updated upstream
+      <div class="main__content legal-mur">
+        <h2>Summary</h2>
+=======
       <div class="main__content">
         <h2 class="t-ruled--bold t-ruled--bottom">Summary</h2>
+>>>>>>> Stashed changes
         {% if mur.mur_type == 'archived' %}
         <div class="legal-mur__archive"><span class="legal-mur__archive-icon"><span class="u-visually-hidden">Icon representing an archived case</span></span>Archived case</div>
         {% endif %}
@@ -72,13 +81,22 @@
     <section id="documents" class="content__section">
       <h2 class="t-ruled--bold t-ruled--bottom">Documents</h2>
       <div class="content__section">
+<<<<<<< Updated upstream
+        <a class="button button--cta button--document button--lg" href="{{ mur.url }}" target="_blank">View case</a>
+=======
         <a class="legal-mur__document-button button button--cta button--document button--lg" href="{{ mur.url }}" target="_blank">View case</a>
+>>>>>>> Stashed changes
         (<a class="t-sans" href="{{ mur.url }}" target="_blank">{{ mur.pdf_size | filesize}}</a>)
       </div>
     </section>
     <section id="participants" class="content__section">
+<<<<<<< Updated upstream
+      <h2 class="t-ruled--bold t-ruled--bottom">Participants</h2>
+      <table class="data-table data-table--text">
+=======
       <h2 class="t-ruled--bold t-ruled--bottom u-no-margin">Participants</h2>
       <table class="data-table data-table--text data-table--heading-borders">
+>>>>>>> Stashed changes
         <thead>
           <tr>
             <th>Relationship</th>
@@ -87,12 +105,12 @@
         </thead>
         <tbody>
           {% if 'complainants' in mur and mur.complainants %}
-            {% for complaintant in mur.complainants %}
+            {% for complainant in mur.complainants %}
             <tr class="row-color-normal">
               {% if loop.first %}
-              <td rowspan="{{ mur.complainants | length }}">Complaintant</td>
+              <td rowspan="{{ mur.complainants | length }}">Complainant</td>
               {% endif %}
-              <td>{{ complaintant }}</td>
+              <td>{{ complainant }}</td>
             </tr>
             {% endfor %}
           {% endif %}
@@ -108,9 +126,12 @@
           {% endif %}
         </tbody>
       </table>
+<<<<<<< Updated upstream
+=======
       <div class="results-info results-info--bottom">
         <a class="legal-top" href="#">Top of page</a>
       </div>
+>>>>>>> Stashed changes
     </section>
   </div>
 </div>
